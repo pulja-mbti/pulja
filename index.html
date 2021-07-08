@@ -1,1 +1,38 @@
-<html> <head> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> <title>나의 수학 공부 부캐 찾기</title> <style type="text/css"> html{ margin: 0; height: 100%; overflow: hidden; } iframe { position: absolute; left:0; right:0; bottom:0; top:0; border: 0; } </style> </head> <body> <iframe id="typeform-full" width="100%" height="100%" frameborder="0" allow="camera; microphone; autoplay; encrypted-media;" src="https://form.typeform.com/to/r5HzLfCh?typeform-medium=embed-snippet"></iframe> <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script> </body> </html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>나의 수학 공부 부캐 찾기</title>
+    <style type="text/css"> html{ margin: 0; height: 100%; overflow: hidden; } iframe { position: absolute; left:0; right:0; bottom:0; top:0; border: 0; } </style>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  </head>
+  <body>
+    <script>
+Kakao.init('19ea621da82eb698e9b8cad8a145258c');
+function sendLinkKakao(){
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '{{ post.title }}',
+        description: '{{ post.content|bs4process|truncatewords:15 }}',
+        imageUrl: '{{ post.content|bs4imagepath|full_url }}',
+        link: {
+          mobileWebUrl: '{{ request.build_absolute_uri }}',
+          webUrl: '{{ request.build_absolute_uri }}'
+        }
+      },
+      buttons: [       
+        {
+          title: '나의 수학 공부 부캐 찾기',
+          link: {
+            mobileWebUrl: '{{ request.build_absolute_uri }}',
+            webUrl: '{{ request.build_absolute_uri }}'
+          }
+        }
+      ]
+    }); 
+}
+    </script>
+    <iframe id="typeform-full" width="100%" height="100%" frameborder="0" allow="camera; microphone; autoplay; encrypted-media;" src="https://form.typeform.com/to/r5HzLfCh?typeform-medium=embed-snippet"></iframe>
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
+  </body>
+</html>
